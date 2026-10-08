@@ -1,0 +1,70 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "lookup_domain_info",
+      "description": "Retrieves general business information (industry, size, revenue) about a company based on its domain name.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "domain": {
+            "type": "string",
+            "description": "The company's domain name, e.g., 'acmecorp.com'"
+          }
+        },
+        "required": [
+          "domain"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "check_crm_history",
+      "description": "Checks the internal CRM system for past contact, status, and notes associated with a specific lead email.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": "The full email address of the lead."
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "calculate_lead_score",
+      "description": "Calculates the priority score (High/Medium/Low) for a lead based on the collected domain info and CRM history data.",
+      "strict": true,
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "domain_info": {
+            "type": "string",
+            "description": "A JSON string containing the company domain information (industry, size, revenue)."
+          },
+          "crm_history": {
+            "type": "string",
+            "description": "A JSON string containing the CRM history (last_contact, status, notes)."
+          }
+        },
+        "required": [
+          "domain_info",
+          "crm_history"
+        ],
+        "additionalProperties": false
+      }
+    }
+  }
+]
