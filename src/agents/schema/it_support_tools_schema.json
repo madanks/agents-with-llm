@@ -1,0 +1,82 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "get_server_health",
+      "description": "Checks the current CPU and memory usage of a specific server.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "server_id": {
+            "type": "string",
+            "description": "The ID of the server, e.g., 'payment-server-01'"
+          }
+        },
+        "required": [
+          "server_id"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "fetch_recent_logs",
+      "description": "Retrieves the most recent log entries from a server to diagnose errors.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "server_id": {
+            "type": "string",
+            "description": "The ID of the server."
+          },
+          "lines": {
+            "type": "integer",
+            "description": "Number of log lines to fetch."
+          }
+        },
+        "required": [
+          "server_id"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "restart_service",
+      "description": "Restarts a specific server service. Use this when CPU usage is critically high or the process is unresponsive.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "server_id": {
+            "type": "string",
+            "description": "The ID of the server to restart."
+          }
+        },
+        "required": [
+          "server_id"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "escalate_to_engineer",
+      "description": "Escalates the issue to a human engineer.Use this when automated fixes fail, or when the error logs indicate a complex issue like a payment gateway failure.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "summary": {
+            "type": "string",
+            "description": "A brief summary of the findings (health status, log errors) and why you are escalating."
+          }
+        },
+        "required": [
+          "summary"
+        ]
+      }
+    }
+  }
+]

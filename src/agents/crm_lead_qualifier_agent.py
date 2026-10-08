@@ -57,7 +57,7 @@ def load_json(path: Path):
 
 # --- 1. Initialize OpenAI Client ---
 try:
-    client = OpenAI(api_key=os.getenv('OPENAI_APIKEY'))
+    client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
 except OpenAIError as e:
     print(f"Error initializing OpenAI client: {e}")
     print("Please ensure your OPENAI_API_KEY is set in your environment variables.")
@@ -171,7 +171,7 @@ def run_agent(user_prompt: str):
         {"role": "user", "content": user_prompt},
     ]
 
-    for _ in range(10):
+    for _ in range(5):
         print("\n[AI Thinking...]")
         response = client.chat.completions.create(
             model="gpt-4o",
